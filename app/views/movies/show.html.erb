@@ -69,8 +69,8 @@
       <!-- Label and input for actor_id -->
       <div class="form-group">
         <label for="actor_id" class="control-label">Actor </label>
-
-        <input type="text" id="actor_id" name="actor_id" placeholder="Actor" class="form-control" value="<%=  %>">
+        <%= select_tag("actor_id", options_from_collection_for_select(Actor.all, :id, :name), :class => "form-control") %>
+        <!--<input type="text" id="actor_id" name="actor_id" placeholder="Actor" class="form-control" value="<%=  %>">-->
       </div>
 
       <!-- Label and input for name -->
