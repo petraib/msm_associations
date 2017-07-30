@@ -28,7 +28,9 @@ class Movie < ApplicationRecord
         validates(:year, :numericality => { greater_than: 1870, less_than: 2050 })
         validates(:duration, :numericality => { greater_than: 0, less_than: 2764800 }, :allow_blank=>true )
 
-
+        belongs_to :director, :class_name => "Director", :foreign_key => "director_id"
+        has_many :characters
+        has_many :actors, :through => :characters0
     
 end
 
