@@ -7,7 +7,13 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-
+    @actor_ids = []
+    @characters = Character.where(movie_id: @movie.id)
+    @characters.each do |character|
+      tmp_id = character.actor_id
+      @actor_ids << tmp_id
+    end
+    @actors = Actor.find(@actor_ids)
     render("movies/show.html.erb")
   end
 
